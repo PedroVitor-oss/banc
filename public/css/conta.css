@@ -1,0 +1,113 @@
+*{
+    margin:0;
+}
+body{
+    overflow: hidden;
+}
+div.background{
+    min-width: 105vw;
+    min-height: 130vh;
+    width:150%;
+    height:120%;
+    background-color: #ffffff;
+}
+div.background div.circle
+{
+    
+    width:var(--tamanho);
+    height:var(--tamanho);
+    position:absolute;
+    top:var(--top);
+    border:30px solid #5E84FF;
+    border-radius: 50%;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    left: var( --left);
+    animation: ani-rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes ani-rotate {
+    from{
+        transform: rotateZ(0);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+div.main
+{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+div.main header{
+
+    background-color: #5E84FF;
+    height:10vh;
+    display:flex;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    padding :0 5%;
+}
+div.main header img{
+    width:70%;;
+}
+div.main div.controles
+{
+    height:30vh;
+}
+div.main div#saldo
+{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:white;
+    height:10vh;
+    padding: 2vw;
+    width:92vw;
+    margin: 2vw;
+    background-color: #5E84FF77;
+    border-radius: 5px;
+}
+div.main div#saldo h1{
+    color:#3866fc;
+}
+div.main div.controles div.controle{
+    display: flex;
+}
+div.main div.controles div.controle div.button
+{
+    width:50px;
+    padding: 0 10px;
+    height:100px;
+    margin:10px;
+}
+div.main div.controles div.controle div.button p
+{
+    width:30px;
+    font-size: 15px;
+    font-weight:bolder;
+    margin-left: -15px;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+div.main div.controles div.controle div.button div.icon
+{
+    --tamanho:50px;
+    width:var(--tamanho);
+    height:var(--tamanho);
+    background-color: #5E84FF77;
+    border-radius:50% ;
+
+
+}
+div.main div.controles div.controle div.button div.icon img
+{
+    margin-top:7px;
+    margin-left:5px;
+width:40px;
+
+}

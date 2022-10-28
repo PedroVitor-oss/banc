@@ -1,4 +1,4 @@
-const db = require('db');
+const db = require('./db.js');
 
 const contas = db.sequelize.define('contas',{
     saldo:{
@@ -12,5 +12,12 @@ const contas = db.sequelize.define('contas',{
     },
     conta:{
         type:db.Sequelize.TEXT
+    },
+    dono:{
+        type:db.Sequelize.TEXT
     }
 })
+
+contas.sync({force:true});
+
+
