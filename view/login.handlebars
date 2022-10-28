@@ -4,9 +4,30 @@
     <div class="circle" style="--tamanho:300px;--top:67%;animation-delay:0.5s;--left:15%;"></div>
 </div>
 <div class="main">
+    <form onsubmit="verificacao()" action="/" method="get"  >
     <h1>entra na sua conta </h1>
     <input id="conta" name="conta" placeholder="conta" type="text">
     <input id="agencia" name="agencia" placeholder="agencia" type="text">
     <input id="senha" name="senha" placeholder="senha" type="text">
-    <button>entrar</button>
+    <button type="submit" >entrar</button>
+    </form>
 </div>
+
+<script>
+    contas = [
+    {conta:"935867",
+    agencia:"07560",
+    senha:"36985214"}]
+    $('form').submit(()=>{
+        for(conta of contas){
+           // console.log(conta.conta , $('#conta').val())
+         if(conta.conta == $('#conta').val()&&
+         conta.agencia == $('#agencia').val()&&
+         conta.senha == $('#senha').val()){
+                  $('form').attr('action','/conta?jubtuisdpoiofr='+conta.senha) 
+                  $('form').attr('method','post') 
+
+              }
+        }
+    })
+</script>

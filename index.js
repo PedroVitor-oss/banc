@@ -15,5 +15,8 @@ app.use(express.static(path.join(__dirname,'public')));
 app.get('/',(req,res)=>{
     res.render("login");
 })
+app.post('/conta',(req,res)=>{
+    res.send("conta");
+})
 
 app.listen(port,console.log("aberto e funcionando "))
