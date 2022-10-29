@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="/css/adm.css">
+<nav>
+    <ul>
+        <li id="add-cont">
+            add conta
+        </li>
+        <li id="delet-cont">
+            delet conta
+        </li>
+    </ul>
+</nav>
+<main>
+   
+    
+</main>
+<script>
+    $('input[name="agencia"').val(2345678)
+    $('input[name="conta"').val(2345678)
+    function activeInput(){
+        $('input').attr('disabled',false);
+    }
+    function onlynumber(evt) {
+   var theEvent = evt || window.event;
+   var key = theEvent.keyCode || theEvent.which;
+   key = String.fromCharCode( key );
+   //var regex = /^[0-9.,]+$/;
+   var regex = /^[0-9.]+$/;
+   if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) 
+      theEvent.preventDefault();
+   }
+}
+contas = []
+let id = 0
+{{#each contas}}
+contas.push(
+    {
+        "id":id,
+        "dono":"{{dono}}",
+        "senha":"{{senha}}",
+        "agencia":"{{agencia}}",
+        "conta":"{{conta}}",
+    });
+    id++;
+{{/each}}
+
+$("nav li").click((id)=>{
+    action = '';
+    action = id.target.id;
+    switch(action){
+        case "add-cont":
+            screenAdd();
+        break;
+        case "delet-cont":
+            screenDelet();
+        break;
+    }
+})
+function screenAdd(){
+    $('main').html(`
+
+     <div class="dados">
+        <form onsubmit="activeInput()" action="/addcont" method="post">
+        <h2>dono</h2>
+        <input type="text" name="nome" placeholder="nome" autocomplete="off" >
+        <h2>senha</h2>
+        <input onkeypress="return onlynumber();" type="text" name="senha" placeholder="senha" autocomplete="off" >
+         <h2>agencia</h2>
+        <input disabled="true" type="text" name="agencia" placeholder="agencia" autocomplete="off" >
+        <h2>conta</h2>
+        <input disabled="true" type="text" name="conta" placeholder="senha" autocomplete="off" >
+        <button type="submit">cadastra</button>
+        </form>
+    </div>
+    
+    
+    
+    `)
+}
+function screenDelet(){
+    
+}
+</script>

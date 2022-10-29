@@ -25,4 +25,20 @@
         </div>
     </div>
 </div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+const id = urlParams.get('jubtuisdpoiofr');
+let conta ;
+    {{#each contas}}
+        if({{id}} == id){
+            conta = {
+                "dono":"{{dono}}",
+                "saldo":"{{saldo}}",
+                "senha":"{{senha}}"
+            }
+
+        }
+    {{/each}}
+</script>
 <script src="/js/conta.js"></script>

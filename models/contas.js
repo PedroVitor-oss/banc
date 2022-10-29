@@ -18,6 +18,8 @@ const contas = db.sequelize.define('contas',{
     }
 })
 
-contas.sync({force:true});
+//contas.sync({force:true});
+
+module.exports  = contas;
 
 

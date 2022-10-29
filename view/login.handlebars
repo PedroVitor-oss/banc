@@ -6,25 +6,52 @@
 <div class="main">
     <form onsubmit="verificacao()" action="/" method="get"  >
     <h1>entra na sua conta </h1>
-    <input id="conta" name="conta" placeholder="conta" type="text">
-    <input id="agencia" name="agencia" placeholder="agencia" type="text">
-    <input id="senha" name="senha" placeholder="senha" type="text">
+    <input onkeypress="return onlynumber();" id="conta" name="conta" placeholder="conta" type="text">
+    <input onkeypress="return onlynumber();" id="agencia" name="agencia" placeholder="agencia" type="text">
+    <input onkeypress="return onlynumber();" id="senha" name="senha" placeholder="senha" type="text">
     <button type="submit" >entrar</button>
     </form>
-</div>
+  
+    
+    </div>
 
 <script>
-    contas = [
-    {conta:"935867",
-    agencia:"07560",
-    senha:"36985214"}]
+contas = []
+let id = 0
+{{#each contas}}
+contas.push(
+    {
+        "id":id,
+        "senha":"{{senha}}",
+        "agencia":"{{agencia}}",
+        "conta":"{{conta}}",
+    });
+    id++;
+{{/each}}
+
+contas.push("o")
+</script>
+<script>
+    function onlynumber(evt) {
+   var theEvent = evt || window.event;
+   var key = theEvent.keyCode || theEvent.which;
+   key = String.fromCharCode( key );
+   //var regex = /^[0-9.,]+$/;
+   var regex = /^[0-9.]+$/;
+   if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+   }
+}
+    
+
     $('form').submit(()=>{
         for(conta of contas){
            // console.log(conta.conta , $('#conta').val())
          if(conta.conta == $('#conta').val()&&
          conta.agencia == $('#agencia').val()&&
          conta.senha == $('#senha').val()){
-                  $('form').attr('action','/conta?jubtuisdpoiofr='+conta.senha) 
+                  $('form').attr('action','/conta?jubtuisdpoiofr='+conta.id) 
                   $('form').attr('method','post') 
 
               }
