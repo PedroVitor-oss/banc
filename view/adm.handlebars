@@ -14,11 +14,7 @@
     
 </main>
 <script>
-    function defineCont(){
- $('input[name="agencia"').val(2345678)
-    $('input[name="conta"').val(2345678)
-
-    }
+    
     function activeInput(){
         $('input').attr('disabled',false);
     }
@@ -47,13 +43,43 @@ contas.push(
     });
     id++;
 {{/each}}
+function defineCont(){
+        let agencia = '';
+        let conta = '';
+        let repiti = 0;
+        do{
+            repiti = 0
+            agencia = '';
+            for(i = 0;i<5;i++){
+                agencia+=Math.floor(Math.random()*10);
+            }
+            for(c of contas){
+                if(c.agencia == agencia)
+                repiti = 1;
+            }
+        }while(repiti)
+        do{
+            repiti = 0
+            conta = '';
+            for(i = 0;i<6;i++){
+                conta+=Math.floor(Math.random()*10);
+            }
+             for(c of contas){
+                if(c.conta == conta)
+                repiti = 1;
+            }
+        }while(repiti)
+    $('input[name="agencia"').val(agencia)
+    $('input[name="conta"').val(conta)
 
+    }
 $("nav li").click((id)=>{
     action = '';
     action = id.target.id;
     switch(action){
         case "add-cont":
             screenAdd();
+            defineCont();
         break;
         case "delet-cont":
             screenDelet();
@@ -77,9 +103,6 @@ function screenAdd(){
         </form>
     </div>
     
-    <script>
-   defineCont();
-    </script>
     
     `)
 }
