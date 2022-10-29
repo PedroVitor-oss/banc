@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/card.css">
+<div class="card">
+    <header>
+        <div class="logo"><img src="/svg/logo.svg" alt="" srcset=""></div>
+        <div class="title">Alvo card</div>
+    </header>
+    <h1>{{dono}}</h1>
+    <div class="data-conta">
+        <div class="data">
+            <h2>agencia<br>{{agencia}}</h2>
+        </div>
+        <div class="data">
+            <h2>conta<br>{{conta}}</h2>
+        </div>
+    </div>
+</div>
+<script>
+    colors = [
+        "rgb(6, 76, 207)",
+        "rgb(0, 132, 20)",
+        "rgb(59, 59, 59)",
+        "rgb(255, 8, 8)",
+        'rgb(255, 0, 230)'
+    ]
+    $('.card').css('background',colors[Math.floor(Math.random()*100)%5]);
+</script>

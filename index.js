@@ -45,7 +45,14 @@ app.post('/addcont',(req,res)=>{
     fs.writeFile('./contas.json',JSON.stringify(contas,null,2),()=>{
         console.log("nova conta cadastrada")
     })
-        res.send("pronto")
+        res.render("card",{
+          
+            dono:req.body.nome,
+            senha:req.body.senha,
+            agencia:req.body.agencia,
+            conta:req.body.conta,
+           
+    })
     
 })
 app.get('/adm',(req,res)=>{
