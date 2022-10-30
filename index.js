@@ -55,11 +55,28 @@ app.post('/addcont',(req,res)=>{
     })
     
 })
+app.post('/addsaldo',(req,res)=>{
+    let valor = req.body.saldo;
+    let id = 0;
+    for(c of contas){
+        if(c.conta == req.body.conta){
+            let valAnt = Number(c.saldo)
+            valAnt+=Number(valor);
+            //c.saldo = Number(valAnt);
+            c.saldo =(valAnt);
+            id = c.id
+        }
+    }
+    fs.writeFile('./contas.json',JSON.stringify(contas,null,2),()=>{
+        console.log("saldo adicionado")
+    })
+    res.render('transferir',{id:id});
+})
 app.get("/transferencia",(req,res)=>{
     res.render("transferencia",{contas:contas});
 })
 app.post('/transferir',(req,res)=>{
-    valor = req.body.valor;
+    let valor = req.body.valor;
     let  id  = 0;
     for(c of contas){
         if(c.conta == req.body.paraConta){

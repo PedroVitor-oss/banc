@@ -4,8 +4,8 @@
         <li id="add-cont">
             add conta
         </li>
-        <li id="delet-cont">
-            delet conta
+        <li id="add-saldo">
+            saldo
         </li>
     </ul>
 </nav>
@@ -81,8 +81,8 @@ $("nav li").click((id)=>{
             screenAdd();
             defineCont();
         break;
-        case "delet-cont":
-            screenDelet();
+        case "add-saldo":
+            addAldo();
         break;
     }
 })
@@ -106,7 +106,20 @@ function screenAdd(){
     
     `)
 }
-function screenDelet(){
+function addAldo(){
+    $('main').html(`
+
+     <div class="dados">
+        <form onsubmit="activeInput()" action="/addsaldo" method="post">
+        <h2>dono</h2>
+        <input type="text" name="conta" placeholder="conta" autocomplete="off" >
+        <h2>conta</h2>
+        <input  type="number" name="saldo" placeholder="saldo" autocomplete="off" >
+        <button type="submit">adicionar </button>
+        </form>
+    </div>
     
+    
+    `)
 }
 </script>
