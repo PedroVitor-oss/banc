@@ -16,12 +16,14 @@
             <h1>R$ </h1>
         </div>
         <div class="controle">
+            <a href="/transferencia">
             <div class="button">
                 <div class="icon">
                     <img src="/svg/trasferencia.svg" alt="" srcset="">
                 </div>
                 <p>transferencia</p>
             </div>
+            </a>
         </div>
     </div>
 </div>
@@ -40,5 +42,6 @@ let conta ;
 
         }
     {{/each}}
+    $('a').attr('href','/transferencia?c='+id);
 </script>
 <script src="/js/conta.js"></script>

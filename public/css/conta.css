@@ -78,6 +78,11 @@ div.main div#saldo h1{
 div.main div.controles div.controle{
     display: flex;
 }
+div.main div.controles div.controle a
+{
+    text-decoration: none;
+    color:black;
+}
 div.main div.controles div.controle div.button
 {
     width:50px;

@@ -1,0 +1,83 @@
+*{
+    margin:0;
+}
+body{
+    overflow: hidden;
+}
+div.background{
+    min-width: 105vw;
+    min-height: 130vh;
+    width:150%;
+    height:120%;
+    background-color: #fff;
+}
+div.background div.circle
+{
+    
+    width:var(--tamanho);
+    height:var(--tamanho);
+    position:absolute;
+    top:var(--top);
+    border:30px solid #5E84FF;
+    border-radius: 50%;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    left: var( --left);
+    animation: ani-rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes ani-rotate {
+    from{
+        transform: rotateZ(0);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+main{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+header h1
+{
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+input
+{
+    border:none;
+    outline: none;
+    background:transparent;
+    border-bottom: 1px solid #5E84FF;
+    width:80%;
+    margin:20px 0 ;
+    margin-left:10%;
+    height:30px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    
+}
+form h1{
+    color:#5E84FF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
+button
+{
+    border: 1px solid #002cbe;
+    background: #002cbe;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    margin-top: 20px;
+    transition:0.5s;
+}

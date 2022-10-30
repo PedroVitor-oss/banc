@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/css/transferencia.css">
+
+<div class="background">
+    <div class="circle" style="--tamanho:400px;--top:50%;"></div>
+    <div class="circle" style="--tamanho:300px;--top:67%;animation-delay:0.5s;--left:15%;"></div>
+</div>
+<main>
+    <header>
+        <h1>Transferencia</h1>
+    </header>
+    <form onsubmit="verificacao()" action="/transferencia" method="get">
+    <h1>valor</h1>
+    <input type="number" class="valor" name="valor" placeholder="valor" required>
+    <h1>transferir para</h1>
+    <input type="text" class="paraConta" name="paraConta">
+    <h1>sua conta</h1>
+    <input disabled="true" type="text" class="daConta" name="daConta" required>
+    <h1>digite sua senha</h1>
+    <input type="text" class="senha" name="senha" placeholder="senha" required>
+    <button type="submit">transferir</button>
+    </form>
+
+</main>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('c');
+    $('form').attr('action','/transferencia?c='+id);
+    let conta ;
+    {{#each contas}}
+        if({{id}} == id){
+            conta = {
+                "conta":"{{conta}}",
+                "saldo":{{saldo}},
+                "senha":"{{senha}}"
+            }
+        }
+    {{/each}}
+    $('input.daConta').val(conta.conta);
+    
+    $('form').submit(()=>{
+       if($('input.senha').val() == conta.senha){
+            if(Number($('input.valor').val())>conta.saldo){
+                alert('valor indisponivel')
+            }else{
+                $('form').attr('action','/transferir') 
+                $('form').attr('method','post') 
+                $('input').attr('disabled',false)
+            }
+        }else{
+             alert('senha invalida'+conta.senha)
+        }
+
+    })
+</script>
